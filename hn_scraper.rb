@@ -5,12 +5,6 @@ require './lib/post'
 require './lib/comment'
 require './lib/user'
 
-# take a url
-# give the post title
-# give the number of comments
-# give number of users who have commented
-# ask if you want to view the content
-
 class HackerNewsScraper
 
   attr_reader :url, :page
@@ -59,17 +53,11 @@ class HackerNewsScraper
 
   def strip_post_comments
     @page.css('tr.athing').drop(1).map do |comment|
-      # TODO: Set the parent as something before
       user = comment.css('span.comhead > a').text
       text = comment.css('span.c00').text
       depth = comment.css('td.ind img')[0]['width'].to_i
       Comment.new(user, text, depth)
     end
-
-    # @page.css('span.c00').map do |comment|
-    #   user = comment.search('span.comhead > a')[0].inner_text
-    #   Comment.new(user, comment.text, 0) 
-    # end
   end
 
   # Display Methods
@@ -82,9 +70,16 @@ class HackerNewsScraper
     puts "Post id:".colorize(:red) + " #{post.id}".colorize(:green)
     puts "Post comments:".colorize(:red) + " #{post.comments_count}".colorize(:green)
     puts "\nWhat are comments?".colorize(:red) + "  #{post.comments[0].class}".colorize(:green)
-    puts "\nShow me a random comment:".colorize(:red)
-    puts "\nBy #{post.comments[rand_roll].user}".colorize(:green) + " #{post.comments[rand_roll].depth}"
-    puts "\n#{post.comments[rand_roll].body}".colorize(:green)
+    
+    # puts "\nShow me a random comment:".colorize(:red)
+    # puts "\nBy #{post.comments[rand_roll].user}".colorize(:green) + " #{post.comments[rand_roll].depth}"
+    # puts "\n#{post.comments[rand_roll].body}".colorize(:green)
+    
+    puts "\nAll comments".colorize(:red)
+    post.comments.each do |comment|
+      puts "#{comment.body} says #{comment.user}"
+    end
+
     puts "\n--------------------------\n\n".colorize(:red)
   end
 

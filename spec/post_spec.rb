@@ -19,9 +19,11 @@ describe Post do
       expect(@post.id).to be_a(Integer)
     end
 
-    it "A new post should have 100 points" do
+    it "A post should have points" do
       expect(@post.points).to eq(100)
     end
+
+    # Test for comments
   end
 
   describe '#comment_count' do
