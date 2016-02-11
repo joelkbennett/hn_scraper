@@ -5,5 +5,7 @@ def safely_require(file)
 rescue LoadError
 end
 
-# Libs
-# safely_require ''
+safely_require '../lib/post'
+safely_require '../lib/comment'
+safely_require '../lib/user'
+safely_require '../hn_scraper'

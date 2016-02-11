@@ -6,6 +6,9 @@ GEM
     mini_portile2 (2.0.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    paint (1.0.1)
+    restclient (0.11.3)
+      paint (~> 1.0)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -26,4 +29,5 @@ PLATFORMS
 DEPENDENCIES
   colorize
   nokogiri
+  restclient
   rspec
