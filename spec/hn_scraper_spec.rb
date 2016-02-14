@@ -18,69 +18,6 @@ describe HackerNewsScraper do
     end
   end
 
-  describe '#get_data' do
-    it "Should return a Nokogiri instance" do
-      ARGV[0] = "post.html"
-      page = HackerNewsScraper.new
-      expect(page.get_data).to be_a(Nokogiri::HTML::Document)
-    end
-  end
-
-  describe '#strip_post_title' do
-    it 'Should return an string' do
-      ARGV[0] = 'post.html'
-      page = HackerNewsScraper.new
-      expect(page.strip_post_title).to be_a(String)
-    end
-  end
-
-  describe '#strip_post_author' do
-    it "Should return a string" do
-      ARGV[0] = 'post.html'
-      page = HackerNewsScraper.new
-      expect(page.strip_post_author).to eq("purpleturtle")
-    end
-  end
-
-  describe '#strip_post_id' do
-    it 'Should return an Fixnum' do
-      ARGV[0] = 'post.html'
-      page = HackerNewsScraper.new
-      expect(page.strip_post_id).to be_a(Fixnum)
-    end
-  end
-
-  describe '#strip_post_url' do
-    it "Should return a String" do
-      ARGV[0] = 'post.html'
-      page = HackerNewsScraper.new
-      expect(page.strip_post_url).to be_a(String)
-    end
-  end
-
-  describe '#strip_post_points' do
-    it "Should return a Fixnum" do
-      ARGV[0] = 'post.html'
-      page = HackerNewsScraper.new
-      expect(page.strip_post_points).to be_a(Fixnum)
-    end
-  end
-
-  describe '#strip_post_comments' do
-    it "Should return an Array" do
-      ARGV[0] = 'post.html'
-      page = HackerNewsScraper.new     
-      expect(page.strip_post_comments).to be_a(Array)
-    end
-  end
-
-  describe '#create_post' do
-    it "should return a new Post instance" do
-      ARGV[0] = 'post.html'
-      page = HackerNewsScraper.new
-      expect(page.create_post).to be_a(Post)      
-    end
-  end
 
   # describe '#display_results' do
   #   it "Should return a String" do

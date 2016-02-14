@@ -1,5 +1,7 @@
 module ScrapperError
 
-  # Setup new exceptions
+  class ScapperError < StandardError
+
+  end
 
 end
